@@ -1,0 +1,478 @@
+/* Search container */
+body:before {
+	content: 'phone';
+	display: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.wrapper {
+	flex-flow: column;
+}
+
+.container-fluid {
+
+	/*flex-wrap: wrap;*/
+	flex-direction: column;
+	padding: 0px;
+}
+
+/* Header container */
+.header-title {
+
+	/*font-family: 'Proxima-Nova' sans-serif;*/
+	font-family: 'Work Sans'; /* font-weight: lighter;*/
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	letter-spacing: 0.5px;
+	align-self: center;
+	padding-top: 0.5em;
+	color: #00B0FC;
+	line-height: 0.8em;
+}
+
+.logo-top-page {
+	height: 3.5em;
+	width: 3em;
+	background-image: url(../img/canwehelp.png);
+	background-size: cover;
+	display: block;
+	text-align: center;
+}
+
+/*------------------------------------*/
+
+/*myModal popup on the marker*/
+#myModal {
+	height: 20em;
+	width: 15em;
+	margin-top: 9em;
+	margin-left: 4.5em;
+}
+
+.modal-header {
+	// background-color: #9fe8f4;
+}
+
+.modal-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;    /* background-color: #f5f5f5; */
+	// background-color: #9fe8f4;
+	background-color: #31bff0;
+	background-clip: padding-box;
+	border: none;    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+
+	/* border-radius: 0.3rem; */
+	border-radius: 0 !important;
+	outline: 0;
+}
+
+/*----------------------------------*/
+.container-fluid {
+
+	/*flex-wrap: wrap;*/
+	flex-direction: column;
+	padding: 0px;
+}
+
+/*span button*/
+.span-btn {
+	position: relative;
+	z-index: 500;
+}
+
+.span-auto {
+	text-align: center;
+	width: 100%;
+	position: absolute;
+}
+
+// .span-btn.show {
+//   display: none;
+	
+// }
+
+// .span-btn.show {
+//  display: block;
+	
+// }
+
+.btn-primary.show {
+	display: none;
+}
+
+.btn-bar {
+	background-image: url(../svg/button/bar-slim.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.btn-dessert {
+	background-image: url(../svg/button/dessert-slim.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.btn-cafe {
+	background-image: url(../svg/button/cafe-slim.svg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+// .btn-scenic {
+// 		background-image: url(../svg/button/scenic-slim.svg);
+// 	    background-size: cover;
+// 	    background-repeat: no-repeat;
+	
+// }
+
+// .btn-restaurant {
+// 		background-image: url(../svg/button/restaurant-slim.svg);
+// 	    background-size: cover;
+// 	    background-repeat: no-repeat;
+	
+// }
+
+.btn {
+	// line-height: 1.7em;
+	padding: 0.7em;
+}
+
+.btn-primary {
+	color: #f5f5f5;
+	border-color: #e59a9a;
+	background-color: #e59a9a;
+	box-shadow: 0 10px 6px -6px rgba(119, 119, 119, 0.3);
+	// border-color: #4682b4;
+	border-radius: 10em;
+	height: 3em;
+	width: 3em;
+	margin-top: 1em;
+	margin-right: 0.5em;
+	margin-left: 0.5em;
+}
+
+.btn-primary:hover {
+	// background-color: #37a0e7;
+	// border-color: #37a0e7;
+	background-color: #31bff0;
+	border-color: #31bff0;
+}
+
+.modal-title {
+	margin-bottom: 0;
+	line-height: 1.5;
+	font-family: 'Work Sans';
+	font-weight: 300;
+	font-size: 1em;
+}
+
+// https://silviomoreto.github.io/bootstrap-select/examples/
+// http://craftpip.github.io/bootstrap-fullscreen-select/
+//https://bootstrap-vue.js.org/docs/components/form-select/
+
+.leaflet-marker-icon, .leaflet-pane.leaflet-marker-pane {
+	width: 20px;
+	height: 20px;
+}
+
+/* Nice-select-wide dropdown */
+.nice-select {
+	border-radius: 0 !important;
+	border: none;
+	font-family: 'Work Sans';
+	font-size: 1em;
+	text-transform: uppercase;
+	color: salmon;
+	letter-spacing: 0.2em;
+	font-weight: 300;
+}
+
+.nice-select.wide {
+	width: 100%;
+	font-size: 1.2em;
+	font-family: 'Work Sans';
+	font-weight: 300;
+	color: salmon;
+	letter-spacing: 0.2em;
+	padding-top: 0.15em;
+}
+
+.nice-select .option.selected {
+
+	/* font-weight: bold; */
+	font-weight: 500;
+}
+
+.nice-select .option {
+	font-family: 'Work Sans';
+	font-size: 1.2em;
+	font-weight: 300;
+	letter-spacing: 0.2em;
+}
+
+.nice-select:after {
+	// border-bottom: 1px solid #90a1b5;
+	// border-right: 1px solid #90a1b5;
+	border-bottom: 1px solid salmon;
+	border-right: 1px solid salmon;
+	content: '';
+	display: block;
+	height: 15px;
+	margin-top: -4px;
+	pointer-events: none;
+	position: absolute;
+	right: 20px;
+	top: 32%;
+	-webkit-transform-origin: 66% 66%;
+	-ms-transform-origin: 66% 66%;
+	transform-origin: 66% 66%;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+	width: 15px;
+}
+
+.custom-select {
+	font-family: 'Work Sans';
+	text-transform: uppercase;
+	font-weight: 300;
+	// margin-top: 5.5em;
+	padding: 1em;
+	letter-spacing: 0.1em;
+	// color: #a3d7fa;
+	color: salmon;
+	font-size: 1em;
+	background: url(../svg/arrow-down.svg) no-repeat bottom right;
+	// background: none;
+	background-size: 70px 50px;
+	// background-size: contain;
+	// background-color: white;
+	// width: 15em;
+	height: 3.9em;
+	border: none;
+	width: 100%;
+	overflow: hidden;
+	// transition: all 0.2s ease-out;
+}
+
+.custom-select option {
+	border: none !important;
+	outline: none !important;
+	// width: inherit;
+	padding: 1em !important;
+	font-family: 'Work Sans';
+	font-weight: 300;
+	font-size: 1.15em;
+	letter-spacing: 0.2em;
+	overflow: hidden;
+	//   transition: all 0.2s ease-out;
+	//   max-height: 0;
+	// display: block;
+	// overflow: hidden;
+	// opacity: 0;
+}
+
+/* Modal Popup */
+.close {
+	font-weight: lighter;
+}
+
+
+
+
+//my div icon
+.my-div-icon {
+	background-color:pink;
+} 
+
+
+
+/* Map container */
+#map {
+	height: calc(100vh - 58px);
+	transition: height 1s;
+}
+
+/* Search details container */
+#search-details {
+	// background-color: $whiteThree;
+	background-color: white;
+	display: none;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	min-height: 50vh;
+	// padding: 10px;
+	// padding-top: 1em;
+	padding: 2em;
+	padding-top: 4.5em;
+	font-family: 'Work Sans';
+	font-weight: 300;
+	text-align: center;
+	list-style-type: none !important;
+	color: salmon;
+}
+
+.h2-details-template {
+	font-family: 'Work Sans';
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: 200;
+	// color: #00B0FC;
+	// color: #31bff0;
+	color: salmon;
+	text-align: center;
+}
+
+.ul-details-template {
+	list-style-type: none !important;
+	padding: 1.5em 0 0 0;
+	box-sizing: border;
+	margin: 0;
+}
+
+.url {
+	color: salmon;
+	min-width: 50%;
+	margin: auto;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.search-close {
+	position: absolute;
+	right: 32px;
+	// top: 32px;
+	margin-top:-3em;
+	width: 32px;
+	height: 32px;
+	opacity: 0.5;
+	// margin-top: 16em;
+}
+
+.search-close:hover {
+	opacity: 1;
+}
+
+.search-close:before, .search-close:after {
+	position: absolute;
+	left: 15px;
+	content: ' ';
+	// height: 33px;
+	height: 3em;
+	width: 1px;
+	background-color: #333;
+}
+
+.search-close:before {
+	transform: rotate(45deg);
+}
+
+.search-close:after {
+	transform: rotate(-45deg);
+}
+
+.p-details-template {
+	font-size: 2em;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 0.9em;
+}
+
+.foursquare-img {
+	text-align: center;
+	padding-top: 1.5em;
+}
+
+.search-options-header, .search-details-header {
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	flex-direction: row;
+
+	h2 {
+		flex: 0 0 auto;
+		display: inline-flex;
+	}
+
+	.search-close {
+		flex: 0 0 auto;
+	}
+
+}
+
+.search-container {
+	padding: 0px !important;
+	z-index: 35000;
+}
+
+.search-header {
+	// background-color: $whiteOne;
+	background-color: white !important;
+	align-items: center;
+	// justify-content: space-between;
+	box-shadow: 0 10px 6px -6px rgba(119, 119, 119, 0.3);
+	// padding: 10px;
+	height: 3.5em;
+}
+
+/* Search options container */
+#search-options {
+	background-color: $whiteTwo;	/* remove height after being filled out with search options. */
+	display: none;
+	padding: 10px;
+	z-index: 35000;
+}
+
+.modal-backdrop.show {
+	opacity: 0;
+	pointer-events: none;
+}
+
+@include media-breakpoint-up(md) {
+	body:before {
+		content: 'tablet';
+	}
+
+	.wrapper {
+		flex-flow: row;
+	}
+
+	#start-search, #search-options>.search-close {
+		display: none;
+	}
+
+	.search-header, #search-options {
+		align-items: flex-start;
+		position: initial;
+		box-shadow: 0;
+		display: flex;
+		flex-flow: column;
+	}
+
+	#map {
+		height: 100vh;
+	}
+
+	#search-options {
+		height: calc(100vh - 58px);
+	}
+
+	.search-container {
+		position: initial;
+	}
+
+	.search-options-header .search-close {
+		display: none;
+	}
+
+}
+
+// @import url('http://getbootstrap.com/dist/css/bootstrap.css');

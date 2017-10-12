@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Auckland Place Finder App</title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		<!--plugin  -->
+		<link rel="stylesheet" href="js/jquery-nice-select/css/nice-select.css">
+		<!--  -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div class="d-flex wrapper">
+			<div class="search-container col-md-4">
+				<div class="d-flex no-gutters search-header">
+					<!-- <h2 class="header-title">Auckland<br> Finder</h2> -->
+					<!-- <div class="logo-top-page"></div> -->
+					<!-- <span class="btn btn-primary" data-type="cafe">a</span>
+					<span class="btn btn-primary" data-type="dessert">b</span>
+					<span class="btn btn-primary" data-type="restaurant">c</span> -->
+					<!-- <div class="arrow"></div> -->
+					<!-- 				<select class="custom-select custom-arrow" id="city-input">
+									<option selected value="-36.8446152873055,174.76662397384644" id="select-city-input" data-width="auto">Select Your Location</option>
+						<option value="-36.8446152873055,174.76662397384644" id="Auckland" data-width="auto">Auckland</option>
+									<option value="-36.78368259866044,175.01156330108643" id="Waiheke" data-width="auto">Waiheke Island</option>
+						<option value="-36.829468244763696,174.79784488677979" id="Devonport" data-width="auto">Devonport</option>
+						<option value="-36.78839127856238,174.7717523574829" id="Takapuna" data-width="auto">Takapuna</option>
+						<option value="-36.84913134182603,174.8317050933838" id="Mission Bay" data-width="auto">Mission Bay</option>
+						
+					</select> -->
+					<select name="city-input" id="city-input" class="wide">
+						<option data-display="Select Your Location" id="select-city-input" value="-36.8446152873055,174.76662397384643">Select</option>
+						<option value="-36.8446152873055,174.76662397384644" id="Auckland" data-width="auto">Auckland</option>
+						<option value="-36.78368259866044,175.01156330108643" id="Waiheke" data-width="auto">Waiheke Island</option>
+						<!-- <option value="-36.78914738997797,174.99911785125732" id="Waiheke-East" data-width="auto"></option>
+						<option value="-36.797979593341225,175.03478050231934" id="Waiheke-East-West" data-width="auto"></option>
+						<option value="-36.7935464356687,175.06722450256348" id="Waiheke-Onetangi" data-width="auto"></option>
+						<option value="-36.81175854581354,175.0821590423584" id="Waiheke-Musson" data-width="auto"></option> -->
+						<option value="-36.829468244763696,174.79784488677979" id="Devonport" data-width="auto">Devonport</option>
+						<option value="-36.78839127856238,174.7717523574829" id="Takapuna" data-width="auto">Takapuna</option>
+						<option value="-36.84913134182603,174.8317050933838" id="Mission Bay" data-width="auto">Mission Bay</option>
+					</select>
+					<!-- <div class="main">
+								<div id="nav-icon1">
+											<span></span>
+											<span></span>
+											<span></span>
+								</div>
+					</div> -->
+					<!-- <button type="button" class="btn btn-primary" id="start-search">Search <i class="fa fa-search"></i></button> -->
+				</div>
+				<!-- disable here from search options -->
+				<!-- <div class="" id="search-options">
+							<div class="d-flex search-options-header">
+										<h2>Search stuff here</h2>
+										<i class="search-close fa fa-lg fa-times"></i>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita numquam ducimus sunt incidunt officia delectus assumenda sint repellendus praesentium nihil quod illum animi repudiandae esse iste, consequuntur aperiam sit facilis saepe molestiae. Eum modi id nisi dolore fugiat dicta recusandae non, in aliquid aliquam, numquam molestiae ut. Esse facere, perspiciatis!</p>
+							<button type="button" class="btn btn-default" id="search-button">Search</button>
+				</div> -->
+				<!-- disable here end of search options-->
+			</div>
+			<div class="map-container d-flex container-fluid flex-nowrap no-gutters col-md-8">
+				<div class="span-btn">
+					<div class="span-auto">
+						<span class="btn btn-primary btn-cafe" data-type="cafe"></span>
+						<span class="btn btn-primary btn-dessert" data-type="dessert"></span>
+						<span class="btn btn-primary btn-restaurant" data-type="restaurant"><i class="fa fa-cutlery" aria-hidden="true"></i></span>
+						<span class="btn btn-primary btn-bar" data-type="bar"></span>
+						<span class="btn btn-primary btn-scenic" data-type="scenic"><i class="fa fa-camera" aria-hidden="true"></i></span>
+					</div>
+				</div>
+				
+				<div class="no-gutters" id="map">
+				</div>
+				
+				<div class="" id="search-details">
+					<!-- <div class="d-flex search-details-header">
+								<h2>Search details here</h2>
+								<i class="search-close fa fa-lg fa-times"></i>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui iste quas non officiis, voluptates tenetur veniam inventore praesentium! A, expedita.</p>
+					<ul>
+								<li>Address</li>
+								<li>Opening Hours</li>
+								<li>Rating</li>
+								<li>Contact Details</li>
+								<li>Destination pictures</li>
+								<li>Destination WiFi connectivity</li>
+								<li>Destination website</li>
+								<li>Route to destination</li>
+								<li>Estimated travel time</li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal popup -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!--  <div class="modal-body">
+					</div> -->
+				</div>
+				<script type="text/template" id="details-template">
+				<!-- <div class="" id="search-details"> -->
+				<div class="d-flex search-details-header">
+					<h2 class="h2-details-template"></h2>
+					<!-- <i class="search-close fa fa-lg fa-times" id="fa-details"></i> -->
+					<div class="search-close" id="fa-details"></div>
+				</div>
+				<p class="p-details-template">{{name}}</p>
+				
+				<div class="foursquare-img">
+					{{#each photos.groups[0].items}}
+					<img src={{this.prefix}}100x100{{this.suffix}}>
+					{{/each}}
+				</div>
+				<ul class="ul-details-template">
+					<li>{{location.address}}</li>
+					<li>Rating: {{rating}}</li>
+					<li>{{contact.phone}}</li>
+					<li>Twitter: {{contact.twitter}}</li>
+					<li>Destination pictures</li>
+					<li>Destination WiFi connectivity</li>
+					<!-- <li>{{url}}</li> -->
+					<li><a href="https://www.google.com/maps/dir/?api=1&destination={{location.address}},Auckland">Route to destination</a></li>
+					<li>Estimated travel time</li>
+					{{#if popular}}
+					{{#each this.timeframes}}
+					<li>{{this.days}} - {{this.open[0].renderedTime}}</li>
+					{{/each}}
+					{{/if}}
+				</ul>
+				<div>
+					{{#if url}}
+					<a class="url" href="{{url}}">{{url}}</a>
+					{{else}}
+					<a class="url" href="{{shortUrl}}">{{shortUrl}}</a>
+					{{/if}}
+					
+				</div>
+				
+				</script>
+				
+				<script type="text/template" id="venue-template">
+				<div class="row">
+					<!-- <h1>Checkout these photos</h1> -->
+					
+					{{#each items}}
+					<div>
+						<p>{{id.name}}</p>
+						<!-- <img src={{this.prefix}}100x100{{this.suffix}}> -->
+						<!-- <p>{{this.user.firstName}}</p> -->
+						<!-- <p>039498687876</p> -->
+					</div>
+					
+					{{/each}}
+					
+					
+				</div>
+				</script>
+				<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+				<script src="js/template7/template7.js"></script>
+				<script src="js/jquery-nice-select/js/jquery.nice-select.js"></script>
+				<script src="js/script.js"></script>
+				<!-- plugin -->
+				<!-- <script src="js/jquery-nice-select/js/jquery.js"></script>  -->
+				
+			</body>
+		</html>
+		<!-- 1. i want to have modal pop up of customize name of the marker on map.
+		2. the close fa fa times icon not working for the marker popup, how to fix this?
+		3.  how to add set timeout animation on the marker
+		4. to add the route animation on the map manually for additional function for fun, not using
+		google map link
+		5. how to remove backdrop fade dialog from modal popup html and css, tried not working, i want when click on marker, both showing marker popup and search details popup- done
+		6. can i add snazzy map style on top of it? - no you can't, its only for google map
+		7. where is the hotel marker on the map? how to add the hotel on the map? can i use 'near'
+		the lat&lang on the key? can i have both 'near' & l&l on the map? after checking foursquare dont have hotel API, need to find different API from hotel example booking.com
+		8. how to center the foursquare img- done
+		9. how to point the popup on the marker to follow around when you hover the map-->
+		<!-- after breack 1. how to change height to the dropdown box. 2.how to animate slidedown the dropbox. 3.i want to get hotspot location on the map-want to add new location and category on map for hotspot.
+		4. i want to get new response from open hours api endpoints 5. differentiate the color of the dot by category 5. my open hours not working 6. my scenicGroup not working- 7.insert twitter icon in search details section. 8. modal transitioning error when so many click-bootstrap crash 9. how to scale svg as background-image for the button.10. the close button on the search details section is not sitting inside the container.11. how to make the popup modal close button slimmer
+		12. how to make the popup modal sticking and following the marker. 13. how to add icon next to the pop
+		up modal. 13. how to make one click on waiheke and showing 3 circle at the same time by going animating
+		14. how to make the the marker animating. 15. how to make when you click on button come out some icon flying away. ->
+
+
